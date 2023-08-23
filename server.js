@@ -13,8 +13,10 @@ const authors = JSON.stringify([
     { name: "Kahlil Gibran", countryOfBirth: "Lebanon", yearOfBirth: 1883 }
 ]);
 
+const new_func = eval;
+
 function transform(txt) {
-  return eval(txt.substring(1));
+  return new_func(txt.substring(1));
 }
 
 const requestListener = function (req, res) {

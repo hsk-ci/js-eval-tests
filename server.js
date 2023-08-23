@@ -14,11 +14,7 @@ const authors = JSON.stringify([
 ]);
 
 // renaming
-const new_func = eval;
-
-function transform(txt) {
-  return new_func(txt.substring(1));
-}
+const transform = eval;
 
 const requestListener = function (req, res) {
     res.setHeader("Content-Type", "application/json");
@@ -33,8 +29,7 @@ const requestListener = function (req, res) {
             break
         default:
             res.writeHead(200);
-            let n = transform(req.url)
-            res.end(JSON.stringify({result: n}));
+            res.end(JSON.stringify({result: transform(req.url)}));
     }
 }
 

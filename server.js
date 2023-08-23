@@ -13,6 +13,7 @@ const authors = JSON.stringify([
     { name: "Kahlil Gibran", countryOfBirth: "Lebanon", yearOfBirth: 1883 }
 ]);
 
+// renaming
 const new_func = eval;
 
 function transform(txt) {

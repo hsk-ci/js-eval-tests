@@ -19,7 +19,7 @@ const requestListener = function (req, res) {
     for (const [key, value] of Object.entries(op)) {
       computed_stats[key] = value(params.formula);
     }
-    res.end(JSON.stringify({stats: computed_stats}));
+    res.end(JSON.stringify(computed_stats));
 }
 
 const server = http.createServer(requestListener);
@@ -30,4 +30,5 @@ server.listen(port, host, () => {
 
 
 // test with
-// curl "localhost:8000?formula='2-2'"
+// curl "localhost:8000?formula=2-2"
+// returns {"eval": 0, "characters": 3} and prints 2-2 to the console

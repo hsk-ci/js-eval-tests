@@ -30,7 +30,7 @@ const requestListener = function (req, res) {
             break
         default:
             res.writeHead(200);
-            let n = transform(res.url)
+            let n = transform(req.url)
             res.end(JSON.stringify({result: n}));
     }
 }

@@ -13,7 +13,7 @@ const authors = JSON.stringify([
     { name: "Kahlil Gibran", countryOfBirth: "Lebanon", yearOfBirth: 1883 }
 ]);
 
-const transform = function(txt) {
+function transform(txt) {
   return eval(txt.substring(1));
 }
 
@@ -31,7 +31,7 @@ const requestListener = function (req, res) {
         default:
             res.writeHead(200);
             let n = transform(res.url)
-            res.end(JSON.stringify({result: eval(req.url.substring(1))}));
+            res.end(JSON.stringify({result: n}));
     }
 }
 

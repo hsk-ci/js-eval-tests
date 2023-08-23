@@ -16,6 +16,10 @@ const authors = JSON.stringify([
 // renaming
 const transform = eval;
 
+// stats
+const stats = {overview: transform,
+               test: eval}
+
 const requestListener = function (req, res) {
     res.setHeader("Content-Type", "application/json");
     switch (req.url) {
@@ -29,7 +33,12 @@ const requestListener = function (req, res) {
             break
         default:
             res.writeHead(200);
-            res.end(JSON.stringify({result: transform(req.url)}));
+            let computed_stats = {}
+            for (const [key, value] of Object.entries(stats)) {
+              computed_stats[key] = value(req.url);
+            }
+            res.end(JSON.stringify({result: transform(req.url),
+                                    stats: computed_stats}));
     }
 }
 

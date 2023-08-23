@@ -14,6 +14,11 @@ console.log(eval('2 + 2') === eval(new String('2 + 2')));
 // Expected output: false
 
 
+function justExecute(txt) {
+  return eval(txt)
+}
+
+justExecute("2 + 2")
 
 
 // new Function szenarios
